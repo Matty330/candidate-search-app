@@ -41,4 +41,5 @@ const searchGithubUser = async (username: string) => {
   }
 };
 
+// Ensure the export statement is complete
 export { searchGithub, searchGithubUser };
