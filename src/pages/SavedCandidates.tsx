@@ -6,6 +6,7 @@ const SavedCandidates = () => {
   useEffect(() => {
     // Retrieve saved candidates from localStorage
     const saved = localStorage.getItem('savedCandidates');
+    console.log('Saved candidates in localStorage:', saved); // Debug log
     if (saved) {
       setSavedCandidates(JSON.parse(saved));
     }

@@ -5,25 +5,29 @@ const CandidateSearch = () => {
   const [currentCandidate, setCurrentCandidate] = useState(null);
   const [savedCandidates, setSavedCandidates] = useState<any[]>([]);
 
+  // Load saved candidates from localStorage when the component mounts
   useEffect(() => {
-    const fetchCandidate = async () => {
-      const randomUsers = await searchGithub();
-      if (randomUsers.length > 0) {
-        setCurrentCandidate(randomUsers[0]); // Display the first random user
-      } else {
-        console.log('No candidates found');
-      }
-    };
-    fetchCandidate();
+    const saved = localStorage.getItem('savedCandidates');
+    if (saved) {
+      setSavedCandidates(JSON.parse(saved));
+    }
   }, []);
 
+  // Save a candidate
   const saveCandidate = () => {
     if (currentCandidate) {
-      setSavedCandidates([...savedCandidates, currentCandidate]); // Save candidate
-      nextCandidate(); // Load the next candidate
+      const updatedCandidates = [...savedCandidates, currentCandidate];
+      setSavedCandidates(updatedCandidates);
+
+      // Save to localStorage
+      localStorage.setItem('savedCandidates', JSON.stringify(updatedCandidates));
+
+      // Load the next candidate
+      nextCandidate();
     }
   };
 
+  // Fetch the next candidate
   const nextCandidate = async () => {
     const randomUsers = await searchGithub();
     if (randomUsers.length > 0) {
@@ -32,6 +36,11 @@ const CandidateSearch = () => {
       console.log('No more candidates available');
     }
   };
+
+  // Load the first candidate when the component mounts
+  useEffect(() => {
+    nextCandidate();
+  }, []);
 
   return (
     <div>
@@ -52,17 +61,6 @@ const CandidateSearch = () => {
         </div>
       ) : (
         <p>Loading...</p>
-      )}
-
-      <h3>Saved Candidates</h3>
-      {savedCandidates.length > 0 ? (
-        <ul>
-          {savedCandidates.map((candidate, index) => (
-            <li key={index}>{candidate.login}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>No candidates saved yet.</p>
       )}
     </div>
   );
