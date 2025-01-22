@@ -210,42 +210,68 @@ button:last-of-type:hover {
 .saved-candidates {
   margin: 2rem auto;
   width: 90%;
+  max-width: 800px;
+  text-align: center;
   /* Debug */
   --log-saved-candidates-loaded: "Saved candidates styles applied";
 }
 
-.saved-candidates table {
-  width: 100%;
-  border-collapse: collapse;
+.saved-candidates ul {
+  padding: 0;
 }
 
-.saved-candidates th,
-.saved-candidates td {
-  border: 1px solid #333;
-  text-align: center;
-  padding: 0.8rem;
-}
-
-.saved-candidates th {
-  background-color: black;
-  color: white;
-  font-size: 1.2rem;
-  /* Debug */
-  --log-saved-candidates-th-loaded: "Saved candidates table header styles applied";
-}
-
-.saved-candidates td {
+.saved-candidates li {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   background-color: #333;
   color: white;
-  font-size: 1rem;
+  text-align: left;
+  /* Debug */
+  --log-saved-candidates-li-loaded: "Saved candidates list item styles applied";
 }
 
 .saved-candidates img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  display: block;
+  margin-bottom: 1rem;
   /* Debug */
   --log-saved-candidates-img-loaded: "Saved candidates image styles applied";
+}
+
+.saved-candidates h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  /* Debug */
+  --log-saved-candidates-h2-loaded: "Saved candidates heading styles applied";
+}
+
+.saved-candidates p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+}
+
+.saved-candidates a {
+  color: #00aaff;
+  text-decoration: none;
+  font-weight: bold;
+  /* Debug */
+  --log-saved-candidates-link-loaded: "Saved candidates link styles applied";
+}
+
+.saved-candidates a:hover {
+  color: #ffdd00;
+}
+
+.saved-candidates .no-candidates {
+  font-size: 1.2rem;
+  color: #ff4d4d;
+  font-weight: bold;
 }
 
 .saved-candidates button {
