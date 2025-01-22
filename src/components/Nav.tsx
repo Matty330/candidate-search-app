@@ -6,12 +6,12 @@ const Nav = () => {
       <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none', padding: '1rem' }}>
         <li>
           <Link to="/" style={{ textDecoration: 'none', color: 'yellow' }}>
-            Candidate Search
+            Home
           </Link>
         </li>
         <li>
           <Link to="/SavedCandidates" style={{ textDecoration: 'none', color: 'yellow' }}>
-            Saved Candidates
+            Potential Candidates 
           </Link>
         </li>
       </ul>

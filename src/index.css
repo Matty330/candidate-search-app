@@ -11,17 +11,45 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Debug */
+  --log-root-loaded: "Root styles loaded successfully";
 }
 
-a {
+/* Navigation Bar */
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1em 2em;
+  background-color: #001a66; /* Dark blue */
+  /* Debug */
+  --log-nav-loaded: "Navigation bar styles applied";
+}
+
+.nav-item {
+  padding: 0 0.5rem;
+  list-style: none;
+  /* Debug */
+  --log-nav-item-loaded: "Navigation item styles applied";
+}
+
+.nav-link {
+  color: #fff; /* White text */
+  text-decoration: none;
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  transition: color 0.3s ease;
+  /* Debug */
+  --log-nav-link-loaded: "Navigation link styles applied";
 }
 
+.nav-link:hover {
+  color: #535bf2; /* Light blue hover */
+}
+
+.active {
+  font-weight: 700;
+}
+
+/* General Styles */
 body {
   background: linear-gradient(
     180deg,
@@ -30,19 +58,49 @@ body {
     rgba(0, 2, 18, 1) 100%
   );
   background-size: cover;
-  background-repeat: no-repeat no-repeat;
+  background-repeat: no-repeat;
   background-position: center center;
   margin: 0;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: #fff;
+  /* Debug */
+  --log-body-loaded: "Body styles loaded successfully";
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+  /* Debug */
+  --log-h1-loaded: "Heading styles applied";
 }
 
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Debug */
+  --log-main-loaded: "Main styles applied";
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+  /* Debug */
+  --log-link-loaded: "Anchor link styles applied";
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+/* Buttons */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -53,35 +111,166 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: white;
+  /* Debug */
+  --log-button-loaded: "Button styles applied";
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+button:first-of-type {
+  background-color: #ff4d4d; /* Red for reject */
+  /* Debug */
+  --log-button-reject-loaded: "Reject button styles applied";
+}
+
+button:first-of-type:hover {
+  background-color: #cc0000;
+}
+
+button:last-of-type {
+  background-color: #4caf50; /* Green for save */
+  /* Debug */
+  --log-button-save-loaded: "Save button styles applied";
+}
+
+button:last-of-type:hover {
+  background-color: #388e3c;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
+    /* Debug */
+    --log-light-mode-loaded: "Light mode styles applied";
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
 }
 
-main {
-  color: #fff;
+/* Candidate Card (Candidate Search Page) */
+.candidate-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  /* Debug */
+  --log-candidate-card-loaded: "Candidate card styles applied";
+}
+
+.candidate-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  /* Debug */
+  --log-candidate-card-img-loaded: "Candidate card image styles applied";
+}
+
+.candidate-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  /* Debug */
+  --log-candidate-card-h2-loaded: "Candidate card heading styles applied";
+}
+
+.candidate-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.candidate-card a {
+  color: #0044cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.candidate-card a:hover {
+  color: #ffdd00;
+}
+
+/* Saved Candidates Table */
+.saved-candidates {
+  margin: 2rem auto;
+  width: 90%;
+  /* Debug */
+  --log-saved-candidates-loaded: "Saved candidates styles applied";
+}
+
+.saved-candidates table {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-collapse: collapse;
+}
+
+.saved-candidates th,
+.saved-candidates td {
+  border: 1px solid #333;
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.saved-candidates th {
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  /* Debug */
+  --log-saved-candidates-th-loaded: "Saved candidates table header styles applied";
+}
+
+.saved-candidates td {
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+}
+
+.saved-candidates img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* Debug */
+  --log-saved-candidates-img-loaded: "Saved candidates image styles applied";
+}
+
+.saved-candidates button {
+  background-color: #ff4d4d; /* Red for reject */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  /* Debug */
+  --log-saved-candidates-button-loaded: "Saved candidates button styles applied";
+}
+
+.saved-candidates button:hover {
+  background-color: #cc0000;
+}
+
+/* Tables */
+.table {
+  width: 80vw;
+  table-layout: fixed;
+  /* Debug */
+  --log-table-loaded: "Table styles applied";
 }
 
 tr {
@@ -93,29 +282,3 @@ tr {
 tbody tr:nth-child(odd) {
   background-color: #333333;
 }
-
-.nav {
-  display: flex;
-  justify-content: flex-start;
-  padding: 1em 2em;
-}
-
-.nav-item {
-  padding: 0 0.5rem;
-  list-style: none;
-}
-
-.nav-link {
-  color: #fff;
-  text-decoration: none;
-}
-
-.active {
-  font-weight: 700;
-}
-
-.table {
-  width: 80vw;
-  table-layout: fixed;
-}
-
