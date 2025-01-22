@@ -13,25 +13,26 @@ const SavedCandidates = () => {
   }, []);
 
   return (
-    <div>
+    <div className="saved-candidates">
       <h1>Saved Candidates</h1>
       {savedCandidates.length > 0 ? (
         <ul>
           {savedCandidates.map((candidate, index) => (
-            <li key={index}>
+            <li key={index} className="candidate-item">
               <img
                 src={candidate.avatar_url}
                 alt={candidate.login}
-                style={{ width: '50px', borderRadius: '50%' }}
+                className="candidate-avatar"
               />
-              <h2>{candidate.login}</h2>
-              <p>Location: {candidate.location}</p>
-              <p>Company: {candidate.company}</p>
-              <p>Email: {candidate.email}</p>
+              <h2 className="candidate-name">{candidate.login}</h2>
+              <p className="candidate-location">Location: {candidate.location}</p>
+              <p className="candidate-company">Company: {candidate.company}</p>
+              <p className="candidate-email">Email: {candidate.email}</p>
               <a
                 href={candidate.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="candidate-profile-link"
               >
                 View Profile
               </a>
@@ -39,7 +40,7 @@ const SavedCandidates = () => {
           ))}
         </ul>
       ) : (
-        <p>No saved candidates yet.</p>
+        <p className="no-candidates">No saved candidates yet.</p>
       )}
     </div>
   );

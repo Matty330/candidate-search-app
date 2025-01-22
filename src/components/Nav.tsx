@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
   return (
     <nav>
-      <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none', padding: '1rem' }}>
-        <li>
-          <Link to="/" style={{ textDecoration: 'none', color: 'yellow' }}>
+      <ul className="nav">
+        <li className="nav-item">
+          <Link to="/" className="nav-link">
             Home
           </Link>
         </li>
-        <li>
-          <Link to="/SavedCandidates" style={{ textDecoration: 'none', color: 'yellow' }}>
-            Potential Candidates 
+        <li className="nav-item">
+          <Link to="/SavedCandidates" className="nav-link">
+            Potential Candidates
           </Link>
         </li>
       </ul>

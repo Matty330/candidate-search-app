@@ -48,7 +48,7 @@ const CandidateSearch = () => {
     <div>
       <h1>Candidate Search</h1>
       {error ? (
-        <p style={{ color: 'red' }}>{error}</p>
+        <p className="error-message">{error}</p>
       ) : currentCandidate ? (
         <div>
           <img src={currentCandidate.avatar_url} alt={currentCandidate.login} />
