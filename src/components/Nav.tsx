@@ -5,12 +5,12 @@ const Nav = () => {
     <nav>
       <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none', padding: '1rem' }}>
         <li>
-          <Link to="/" style={{ textDecoration: 'none', color: 'blue' }}>
+          <Link to="/" style={{ textDecoration: 'none', color: 'yellow' }}>
             Candidate Search
           </Link>
         </li>
         <li>
-          <Link to="/SavedCandidates" style={{ textDecoration: 'none', color: 'blue' }}>
+          <Link to="/SavedCandidates" style={{ textDecoration: 'none', color: 'yellow' }}>
             Saved Candidates
           </Link>
         </li>
